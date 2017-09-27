@@ -1,0 +1,12 @@
+{
+  "name": "bird-bot",
+  "version": "1.0.0",
+  "description": "All your bird needs are served",
+  "main": "bot.js",
+  "author": "John Buscher",
+  "dependencies": {
+    "discord.io": "^2.5.2",
+    "giphy-api": "^1.2.7",
+    "winston": "^2.3.1"
+  }
+}
