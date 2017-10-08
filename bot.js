@@ -59,7 +59,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
         // !SCOOBY
-            case 'woody':
+            case 'scooby':
                 getGif('', ['scooby', 'scooby doo'], function(url) {
                     bot.sendMessage({
                         to: channelID,
