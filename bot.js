@@ -4,6 +4,7 @@ var auth = require('./auth.json');
 var giphy = require('giphy-api')('zRB0k85tUVrcWd6RMLFo82vlelGRWAuS');
 
 var birdWords = ["birb", "partyparrot", "birdswitharms", "crow", "owl", "bird", "parrot", "birdperson"];
+var toystory = ["toystory"];
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -41,6 +42,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // !hots
             case 'hots':
                 getGif('', ['bat signal'], function(url) {
+                    bot.sendMessage({
+                        to: channelID,
+                        message: url
+                    });
+                });
+            break;
+// !woody
+            case 'woody':
+                getGif('', ['toystory'], function(url) {
+                    bot.sendMessage({
+                        to: channelID,
+                        message: url
+                    });
+                });
+            break;
+
+        // !SCOOBY
+            case 'woody':
+                getGif('', ['scooby', 'scooby doo'], function(url) {
                     bot.sendMessage({
                         to: channelID,
                         message: url
