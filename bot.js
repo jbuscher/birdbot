@@ -48,8 +48,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         message: url
                     });
                 });
+                break;
             }
-            break;
         }
 
      }
