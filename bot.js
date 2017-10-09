@@ -10,7 +10,8 @@ var commands = [
     {name: 'hots', searchTerms: ["bat", "batman", "bat signal"]},
     {name: 'scooby', searchTerms: ["scooby doo", "scooby"]},
     {name: 'woody', searchTerms: ["toy story", "toystory"]},
-    {name: 'jojo', searchTerms: ["jojos bizarre adventure"]}
+    {name: 'jojo', searchTerms: ["jojos bizarre adventure"]},
+    {name: 'prequel', searchTerms: ["prequels"]}
 ]
 
 // Configure logger settings
