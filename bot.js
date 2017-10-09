@@ -5,6 +5,14 @@ var giphy = require('giphy-api')('zRB0k85tUVrcWd6RMLFo82vlelGRWAuS');
 
 var birdWords = ["birb", "partyparrot", "birdswitharms", "crow", "owl", "bird", "parrot", "birdperson"];
 
+var commands = [
+    {name: 'bird', searchTerms: ["birb", "birds with arms", "crow", "owl", "bird", "parrot", "birdperson"]},
+    {name: 'hots', searchTerms: ["bat", "batman", "bat signal"]},
+    {name: 'scooby', searchTerms: ["scooby doo", "scooby"]},
+    {name: 'woody', searchTerms: ["toy story", "toystory"]},
+    {name: 'jojo', searchTerms: ["jojos bizarre adventure"]}
+]
+
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -16,11 +24,13 @@ var bot = new Discord.Client({
    token: auth.token,
    autorun: true
 });
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
@@ -29,56 +39,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var cmd = args[0].toLowerCase();
        
         args = args.splice(1);
-        switch(cmd) {
-            // !bird
-            case 'bird':
-                getGif(userID, birdWords, function(url) {
-                    bot.sendMessage({
-                        to: channelID,
-                        message: url
-                    });
-                });
-            break;
-            // !hots
-            case 'hots':
-                getGif('', ['bat signal'], function(url) {
-                    bot.sendMessage({
-                        to: channelID,
-                        message: url
-                    });
-                });
-            break;
-// !woody
-            case 'woody':
-                getGif('', ['toystory', 'toy story'], function(url) {
-                    bot.sendMessage({
-                        to: channelID,
-                        message: url
-                    });
-                });
-            break;
 
-        // !SCOOBY
-            case 'scooby':
-                getGif('', ['scooby', 'scooby doo'], function(url) {
+        for (var i = 0; i < commands.length; i++) {
+            if(cmd == commands[i].name) {
+                getGif(userID, commands[i].searchTerms, function(url) {
                     bot.sendMessage({
                         to: channelID,
                         message: url
                     });
                 });
+            }
             break;
+        }
 
-            // !JOJO
-            case 'jojo':
-                getGif('', ['jojos bizarre adventure'], function(url) {
-                    bot.sendMessage({
-                        to: channelID,
-                        message: url
-                    });
-                });
-            break;
-            // Just add any case commands if you want to..
-         }
      }
 });
 
