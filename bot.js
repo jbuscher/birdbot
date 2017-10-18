@@ -11,7 +11,8 @@ var commands = [
     {name: 'scooby', searchTerms: ["scooby doo", "scooby"]},
     {name: 'woody', searchTerms: ["toy story", "toystory"]},
     {name: 'jojo', searchTerms: ["jojos bizarre adventure"]},
-    {name: 'prequel', searchTerms: ["prequels"]}
+    {name: 'prequel', searchTerms: ["prequels"]},
+    {name: 'yandere', searchTerms: ["yandere"]}
 ]
 
 // Configure logger settings
