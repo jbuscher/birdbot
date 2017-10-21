@@ -57,7 +57,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         if (cmd == 'chzbrgrs') {
             bot.sendMessage({
                 to: channelID,
-                message: 'https://giphy.com/gifs/chz-xT9Igr98EBJwfU3ijm'
+                message: 'https://media.giphy.com/media/3ohhwnEA8nqak3Eq2I/giphy.gif'
             });
         }
 
