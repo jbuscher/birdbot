@@ -13,6 +13,7 @@ var commands = [
     {name: 'jojo', searchTerms: ["jojos bizarre adventure"]},
     {name: 'prequel', searchTerms: ["prequels"]},
     {name: 'max', searchTerms: ["dickbutt"]},
+    {name: 'yandere', searchTerms: ["yandere"]}
 ]
 
 // Configure logger settings
@@ -53,7 +54,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 break;
             }
         }
-        if(cmd == 'chzbrgrs') {
+        if (cmd == 'chzbrgrs') {
             bot.sendMessage({
                 to: channelID,
                 message: 'https://giphy.com/gifs/chz-xT9Igr98EBJwfU3ijm'
