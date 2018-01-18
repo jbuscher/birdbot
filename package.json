@@ -5,7 +5,7 @@
   "main": "bot.js",
   "author": "John Buscher",
   "dependencies": {
-    "discord.io": "^2.5.2",
+    "discord.io": "github:woor/discord.io#gateway_v6",
     "giphy-api": "^1.2.7",
     "winston": "^2.3.1"
   }
