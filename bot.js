@@ -6,14 +6,19 @@ var giphy = require('giphy-api')('zRB0k85tUVrcWd6RMLFo82vlelGRWAuS');
 var birdWords = ["birb", "partyparrot", "birdswitharms", "crow", "owl", "bird", "parrot", "birdperson"];
 
 var commands = [
-    {name: 'bird', searchTerms: ["birb", "birds with arms", "crow", "owl", "bird", "parrot", "birdperson", "duck"]},
+    {name: 'bird', searchTerms: ["birb", "birds", "penguin", "crow", "owl", "bird", "parrot", "birdperson", "duck"]},
     {name: 'hots', searchTerms: ["bat", "batman", "bat signal"]},
     {name: 'scooby', searchTerms: ["scooby doo", "scooby"]},
     {name: 'woody', searchTerms: ["toy story", "toystory"]},
     {name: 'jojo', searchTerms: ["jojos bizarre adventure"]},
     {name: 'prequel', searchTerms: ["prequels"]},
     {name: 'max', searchTerms: ["dickbutt"]},
-    {name: 'yandere', searchTerms: ["yandere"]}
+    {name: 'wine', searchTerms: ["squidward"]}
+]
+
+var customCommands = [
+	{name: 'chzbrgrs', urls:["https://media.giphy.com/media/3ohhwnEA8nqak3Eq2I/giphy.gif"]},
+	{name: 'rip', urls:["https://gfycat.com/HalfDeterminedIndianhare"]}
 ]
 
 // Configure logger settings
@@ -43,6 +48,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         args = args.splice(1);
 
+	if(cmd == "commands") {
+	    var cmdString = "";
+	    for (var i = 0; i < commands.length; i++) {
+	        cmdString = cmdString + commands[i].name + ", "
+	    }
+	    for (var i = 0; i < customCommands.length; i++) {
+	        cmdString = cmdString + customCommands[i].name + ", "
+            }
+	    bot.sendMessage({
+                        to: channelID,
+                        message: cmdString
+           });
+	}
         for (var i = 0; i < commands.length; i++) {
             if(cmd == commands[i].name) {
                 getGif(userID, commands[i].searchTerms, function(url) {
@@ -54,13 +72,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 break;
             }
         }
-        if (cmd == 'chzbrgrs') {
-            bot.sendMessage({
-                to: channelID,
-                message: 'https://media.giphy.com/media/3ohhwnEA8nqak3Eq2I/giphy.gif'
-            });
-        }
-
+	for(var i = 0; i < customCommands.length; i++) {
+	    if (cmd == customCommands[i].name) {
+	        bot.sendMessage({
+                    to: channelID,
+                    message: customCommands[i].urls[0]
+                });
+		break;
+            }
+	}
      }
 });
 
@@ -79,3 +99,4 @@ function getGif(user, searchTermArray, callback) {
         callback(url);
     });
 }
+console.log(bot)
