@@ -13,12 +13,6 @@ var commands = [
     {name: 'jojo', searchTerms: ["jojos bizarre adventure"]},
     {name: 'prequel', searchTerms: ["prequels"]},
     {name: 'max', searchTerms: ["dickbutt"]},
-    {name: 'wine', searchTerms: ["squidward"]}
-]
-
-var customCommands = [
-	{name: 'chzbrgrs', urls:["https://media.giphy.com/media/3ohhwnEA8nqak3Eq2I/giphy.gif"]},
-	{name: 'rip', urls:["https://gfycat.com/HalfDeterminedIndianhare"]}
 ]
 
 // Configure logger settings
